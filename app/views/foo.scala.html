@@ -2,7 +2,7 @@
 @(distinctList: List[Any])(message: String)(inputForm : Form[views.formdata.InputFormData])
 
 
-@main("Welcome to foo with bootstrap") {
+@main("My second play for scala app") {
     <div class="container">
         <div class="jumbotron">
             <h1>@message</h1>
@@ -41,10 +41,10 @@
                 </div>
             <!--</form> -->
             }
-            <div>
+            <div class="well">
                 <label for="output">Your text without duplicates characters:</label>
-                <p id="output" class="form-control">'@distinctList'</p>
+                <p id="output" class="bg-info">'@distinctList'</p>
             </div>
         </div>
     </div>
-}
+}s
