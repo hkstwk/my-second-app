@@ -9,23 +9,27 @@
             <p>Working with lists</p>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <div><p data-toggle="collapse" data-target="#dupl">
-                    Eliminate consecutive duplicates of list elements
-                </p></div>
-                <div id="dupl" class="collapse">
-                    <p>If a list contains repeated elements they should be replaced with a single copy of the element.
-                    The order of the elements should not be changed.
-                    </p>
-                    <p>Example:
-                    <pre>
-                    <br />scala> distint(List('a,'a,'a,'a,'b,'c,'c,'a,'a,'d,'e,'e,'e,'e))
-                    <br />res0:  List[Symbol] = List('a,'b,'c,'a,'d,'e)
-                    </p>
-                    </pre>
+            <div class="col-sm-5">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading" data-toggle="collapse" data-target="#dupl">
+                            Eliminate consecutive duplicates of list elements
+                        </h4>
+                        <div id="dupl" class="collapse">
+                            <p>If a list contains repeated elements they should be replaced with a single copy of the element.
+                            The order of the elements should not be changed.
+                            </p>
+                            <p>Example:
+                            <pre>
+                            <br>scala> duplicates(List('a,'a,'a,'a,'b,'c,'c,'a,'a,'d,'e,'e,'e,'e))
+                            <br>res0:  List[Symbol] = List('a,'b,'c,'a,'d,'e)
+                            </p>
+                            </pre>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <div>
                     <pre>def distinct[A](ls: List[A]): List[A] = ls.distinct</pre>
                 </div>

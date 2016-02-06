@@ -28,7 +28,7 @@ class Application extends Controller {
     val inputFormData = InputFormData.inputForm.bindFromRequest()
     val inputForm = inputFormData.get
     val list = inputForm.list.toList
-    Ok(views.html.foo(Duplicates.distinct(list))("Hello foo with bootstrap")(inputFormData))
+    Ok(views.html.foo(Duplicates.duplicates(list))("Play for scala")(inputFormData))
   }
 
 }
