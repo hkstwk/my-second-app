@@ -29,7 +29,6 @@ class Application extends Controller {
     val inputForm = inputFormData.get
     val list = inputForm.list.toList
     Ok(views.html.foo(Duplicates.distinct(list))("Hello foo with bootstrap")(inputFormData))
-    //Ok(views.html.foo(Duplicates.distinct(List('a,'a,'b,'b','c,'c)))("Hello foo with bootstrap")(inputFormData))
   }
 
 }
