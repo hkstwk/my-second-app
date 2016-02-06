@@ -15,7 +15,7 @@ class Application extends Controller {
 
   def foo = Action { implicit request =>
     val inputFormData : Form[InputFormData] = InputFormData.inputForm
-    Ok(views.html.foo(Duplicates.distinct(List()))("Hello foo with bootstrap")(inputFormData))
+    Ok(views.html.foo(Duplicates.distinct(List()))("Play for scala")(inputFormData))
   }
 
   val listForm : Form[InputFormData] = Form {

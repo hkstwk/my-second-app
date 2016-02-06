@@ -6,45 +6,45 @@
     <div class="container">
         <div class="jumbotron">
             <h1>@message</h1>
-            <p>Resize this responsive page to see the effect!</p>
+            <p>Working with lists</p>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                <h3>Column 1</h3>
-                <p>@message</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-            <div class="col-sm-4">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-            </div>
-        </div>
-        <div class="row">
-            <h1>Welcome to Scala Play + Bootstrap + AngularJS</h1>
-            @form(routes.Application.postInput, 'role -> "form"){
-                <div class="form-group">
-                    <label for="sometext">Type some text here:</label>
-                    <input id="@inputForm("sometext").id"
-                           name="@inputForm("sometext").name"
-                           value="@inputForm("sometext").value"
-                           class="form-control"
-                           autofocus>
+            <div class="col-sm-6">
+                <div><p data-toggle="collapse" data-target="#dupl">
+                    Eliminate consecutive duplicates of list elements
+                </p></div>
+                <div id="dupl" class="collapse">
+                    <p>If a list contains repeated elements they should be replaced with a single copy of the element.
+                    The order of the elements should not be changed.
+                    </p>
+                    <p>Example:
+                    <pre><br>scala> distint(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+                    <br>res0: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
+                    </p></pre>
                 </div>
-                <div class="form-group">
-                    <p><button type="submit" class="btn btn-primary">Filter duplicates</button></p>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <pre>def distinct[A](ls: List[A]): List[A] = ls.distinct</pre>
                 </div>
-            <!--</form> -->
-            }
-            <div class="well">
-                <label for="output">Your text without duplicates characters:</label>
-                <p id="output" class="bg-info">'@distinctList'</p>
+                @form(routes.Application.postInput, 'role -> "form"){
+                    <div class="form-group">
+                        <label for="sometext">Input list here. Example: 12345 represents List(1,2,3,4,5):</label>
+                        <input id="@inputForm("sometext").id"
+                               name="@inputForm("sometext").name"
+                               value="@inputForm("sometext").value"
+                               class="form-control"
+                               autofocus>
+                    </div>
+                    <div class="form-group">
+                        <p><button type="submit" class="btn btn-primary">Filter duplicates</button></p>
+                    </div>
+                }
+                <div class="well">
+                    <label for="output">Your text without duplicates characters:</label>
+                    <p id="output" class="bg-info">@distinctList</p>
+                </div>
             </div>
         </div>
     </div>
-}s
+}
