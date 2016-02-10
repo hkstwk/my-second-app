@@ -1,12 +1,70 @@
 @import helper._
+@import controllers.routes._
 @(distinctList: List[Any])(message: String)(inputForm : Form[views.formdata.InputFormData])
 
 
 @main("My second play for scala app") {
     <div class="container">
+        <style>
+            #myDiv
+            {
+            height:400px;
+            width:auto;
+            }
+            #myDiv img {
+            max-width:100% ;
+            max-height:100% ;
+            margin:auto ;
+            display:block ;
+            }
+        </style>
         <div class="jumbotron">
-            <h1>@message</h1>
-            <p>Working with lists</p>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                    <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="item active myDiv">
+                        <img src="@routes.Assets.at("IMG_2760.jpg")" alt="Sneeuw1">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+
+                    <div class="item myDiv">
+                        <img src="@routes.Assets.at("IMG_2761.jpg")" alt="Sneeuw1">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+
+                    <div class="item myDiv">
+                        <img src="@routes.Assets.at("IMG_2769.jpg")" alt="Sneeuw1">
+                        <div class="carousel-caption">
+                            <h3>Flowers</h3>
+                            <p>Beatiful flowers in Kolymbari, Crete.</p>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-5">
@@ -20,11 +78,9 @@
                             The order of the elements should not be changed.
                             </p>
                             <p>Example:
-                            <pre>
                             <br>scala> duplicates(List('a,'a,'a,'a,'b,'c,'c,'a,'a,'d,'e,'e,'e,'e))
                             <br>res0:  List[Symbol] = List('a,'b,'c,'a,'d,'e)
                             </p>
-                            </pre>
                         </div>
                     </a>
                 </div>
@@ -33,7 +89,7 @@
                 <div>
                     <pre>def distinct[A](ls: List[A]): List[A] = ls.distinct</pre>
                 </div>
-                @form(routes.Application.postInput, 'role -> "form"){
+                @form(Application.postInput, 'role -> "form"){
                     <div class="form-group">
                         <label for="sometext">Input list here. Example: 12345 represents List(1,2,3,4,5):</label>
                         <input id="@inputForm("sometext").id"
@@ -47,7 +103,7 @@
                     </div>
                 }
                 <div class="well">
-                    <label for="output">Your text without duplicates characters:</label>
+                    <label for="output">Your text without consecutive duplicate characters:</label>
                     <p id="output" class="bg-info">@distinctList</p>
                 </div>
             </div>
