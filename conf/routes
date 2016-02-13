@@ -11,3 +11,4 @@ POST    /foo                        controllers.Application.postInput
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 GET     /webjars/*file              controllers.WebJarAssets.at(file)
 GET     /images/*file               controllers.Assets.at(path="/public/images", file)
+GET     /stylesheets/*file          controllers.Assets.at(path="/public/stylesheets", file)
