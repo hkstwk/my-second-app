@@ -1,6 +1,6 @@
 package controllers
 
-import models.Duplicates
+import models.{Pack, Duplicates}
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc._
@@ -15,7 +15,7 @@ class Application extends Controller {
 
   def foo = Action { implicit request =>
     val inputFormData : Form[InputFormData] = InputFormData.inputForm
-    Ok(views.html.foo(Duplicates.distinct(List()))("Play for scala")(inputFormData))
+    Ok(views.html.foo(Duplicates.duplicates(List()))("Play for scala")(inputFormData))
   }
 
   val listForm : Form[InputFormData] = Form {
